@@ -10,33 +10,60 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materia<!-- <!-- lize.min.css"> -->
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script> -->
 <body>
 
 <div ng-app="myApp">
 
 <div ng-controller="myCtrl">
- 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<h1>Hello {{name}}</h1>
 
+<p style = "font-style: bold"> In this game, remove the unnecessary word in the sentence. If you select the correct word, the next sentence will appear. Repeat this exerices five times. </p>
+<div ng-show="firstSentence">
+<h1> This is the sentence 1 </h1>
 <button ng-click="thisFunction()"> He </button>
 <button ng-click="thisFunction()"> Ran </button>
-<button ng-show="!hideNow" ng-click="thisFunctionVERY()"> Very </button>
+<button ng-show="!hideNow" ng-click="thisFunctionVery()"> Very </button>
 <button ng-click="thisFunction()"> Quickly </button>
 <button ng-click="thisFunction()"> Towards </button>
 <button ng-click="thisFunction()"> The </button>
 <button ng-click="thisFunction()"> Barn </button>
-<p></p>
+<br>
 
-<button ng-show="check" type= button class="btn btn-success" ng-click="thisFunction()"> CORRECT! </button>
-<button ng-show="x" type= button class="btn btn-warning" ng-click="thisFunction()"> Try again. </button> 
-<!-- SETH, I CAN'T CHANGE THE COLOR OF 'TRY AGAIN' BUTTON. COULD YOU TAKE A LOOK AT THAT? -->
+<button ng-show="correct" type= button class="btn btn-success" ng-click="thisFunction()"> CORRECT! </button>
+<!-- <button ng-show="x" type= button class="btn btn-warning" ng-click="thisFunction()"> Try again. </button>  -->
+ <button ng-show="incorrect" type=button class="btn btn-danger">Try Again.</button>
+</div>
 
+<div ng-show="secondSentence">
+<h1> This is the sentence 2 </h1>
+<button ng-click="thisFunction2()"> I </button>
+<button ng-show="!hideNow2" ng-click="thisFunctionJust()"> Just </button>
+<button ng-click="thisFunction2()"> Did </button>
+<button ng-click="thisFunction2()"> Not </button>
+<button ng-click="thisFunction2()"> Understand </button>
+<button ng-click="thisFunction2()"> The </button>
+<button ng-click="thisFunction2()"> Lesson </button>
+<br>
+<button ng-show="correct2" type= button class="btn btn-success" ng-click="thisFunction2()"> CORRECT! </button>
+<!-- <button ng-show="x" type= button class="btn btn-warning" ng-click="thisFunction()"> Try again. </button>  -->
+ <button ng-show="incorrect2" type= button class="btn btn-danger"> Try Again. </button>
+</div>
+
+<div ng-show="thirdSentence">
+<h1> This is the sentence 3 </h1>
+<button ng-click="thisFunction3()"> That </button>
+<button ng-click="thisFunction3()"> Test </button>
+<button ng-click="thisFunction3()"> Was </button>
+<button ng-show="!hideNow3" ng-click="thisFunctionReally()"> Really </button>
+<button ng-click="thisFunction3()"> Long </button>
+<br>
+<button ng-show="correct3" type= button class="btn btn-success" ng-click="thisFunction3()"> CORRECT! </button>
+<!-- <button ng-show="x" type= button class="btn btn-warning" ng-click="thisFunction()"> Try again. </button>  -->
+ <button ng-show="incorrect3" type= button class="btn btn-danger"> Try Again. </button>
+</div>
 
 </div>
 </div>
@@ -44,18 +71,45 @@
 <script type="text/javascript">
 	angular.module('myApp', []).controller('myCtrl', ['$scope', function ($scope){
 
-		$scope.hideNow = false;
-		$scope.check = false;
-		$scope.x = false;
+		$scope.firstSentence = true;
+		$scope.secondSentence = false;
+		$scope.thirdSentence = false;
+		$scope.fourthSentence = false;
+		$scope.fifthSentence = false;
+
 		$scope.thisFunction = function(){
-			$scope.check = false;
-			$scope.x = true;
+			$scope.correct = false;
+			$scope.incorrect = true;
 		}
 
-		$scope.thisFunctionVERY = function(){
+		$scope.thisFunctionVery = function(){
 			$scope.hideNow = true;
-			$scope.check = true;
-			$scope.x = false;
+			$scope.correct = true;
+			$scope.incorrect = false;
+			$scope.secondSentence = true;
+		}
+
+		$scope.thisFunction2 = function(){
+			$scope.correct2 = false;
+			$scope.incorrect2 = true;
+		}
+
+		$scope.thisFunctionJust = function(){
+			$scope.hideNow2 = true;
+			$scope.correct2 = true;
+			$scope.incorrect2 = false;
+			$scope.thirdSentence = true;
+		}
+
+		$scope.thisFunction3 = function(){
+			$scope.correct3 = false;
+			$scope.incorrect3 = true;
+		}
+
+		$scope.thisFunctionReally = function(){
+			$scope.hideNow3 = true;
+			$scope.correct3 = true;
+			$scope.incorrect3 = false;
 		}
 
 	}]);
