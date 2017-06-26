@@ -6,10 +6,10 @@
 
     <div ng-controller="myCtrl">
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" ng-model="username" name="username" required>
 
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" ng-model="password" name="password" required>
 
       <button ng-click="logon()">Login</button>
   </div>
@@ -21,16 +21,22 @@ angular.module('myApp', [])
     $scope.count = 0;
     $scope.logon = function() {
 
+      console.log($scope.username);
+      console.log($scope.password);
       var data = {};
-      var baseUrl = 'http://54.87.210.252/slim/public/index.php';
-      var data =  $http({
-              method: "POST",
-              url: baseUrl + '/loginDoctor',
-              data: {
-                  "email": "seth@email.com",
-                  "password": "passwordSeth"
-              }
-      });
+
+      if($scope.username == "seth@email.com"){
+        var baseUrl = 'http://54.87.210.252/slim/public/index.php';
+        var data =  $http({
+                method: "POST",
+                url: baseUrl + '/loginDoctorSeth',
+                data: {
+                    "email": "swwinslow@gmail.com",
+                    "password": "passwordKaren"
+                }
+        });
+      }
+
       console.log(data);
     };
   }]);

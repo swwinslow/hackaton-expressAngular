@@ -1,0 +1,93 @@
+<?php
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
+require '../vendor/autoload.php';
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+$app = new \Slim\App;
+
+$app->post('/loginPatient', function (Request $request, Response $response) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        if($email == "patient3@email.com" || $email == "patient1@email.com" || $email == "patient2@email.com" || $email == "patient4@email.com")
+                if($password == "password"){
+                        $data = array ('message' => "Log in Success");
+                } else {
+                        $data = array ('message' => "Log in FAILED");
+                }
+        }else {
+                $data = array ('message' => "Log in FAILED");
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($data);
+});
+
+$app->post('/loginDoctorSeth', function (Request $request, Response $response) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        if($email == "seth@email.com" && $password == "passwordSeth"){
+            $data = array ('message' => "Log in Success");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          } else {
+            $data = array ('message' => "Log in FAILED");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          }
+});
+
+$app->post('/loginDoctorKaren', function (Request $request, Response $response) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        if($email == "karen@email.com" && $password == "passwordKaren"){
+            $data = array ('message' => "Log in Success");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          } else {
+            $data = array ('message' => "Log in FAILED");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          }
+});
+
+$app->post('/loginDoctorBrian', function (Request $request, Response $response) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        if($email == "brain@email.com" && $password == "passwordBrian"){
+            $data = array ('message' => "Log in Success");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          } else {
+            $data = array ('message' => "Log in FAILED");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+          }
+});
+
+$app->post('/loginDoctorCourtney', function (Request $request, Response $response) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        if($email == "courtney@email.com" && $password == "passwordCourtney"){
+            $data = array ('message' => "Log in Success");
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            die();
+        } else {
+          $data = array ('message' => "Log in FAILED");
+          header('Content-Type: application/json');
+          echo json_encode($data);
+          die();
+        }
+});
+
+
+?>
