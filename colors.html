@@ -1,0 +1,104 @@
+<!-- colors game -->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materia<!-- <!-- lize.min.css"> -->
+
+  <!-- Compiled and minified JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script> -->
+<body>
+
+<div ng-app="myApp">
+
+<div ng-controller="myCtrl">
+
+<p style = "font-style: bold"> In this game, a color will appear on the screen. Click on the button if the color of that text matches the color presented on the page. If the colorof the text matches the color presented on the page, don't click on the button. </p>
+<div ng-show="Color1">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: green; font-style: bold; border-color: green"> Red </button>
+</div>
+
+<div ng-show="Color2">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: blue; font-style: bold; border-color: blue"> Blue </button>
+</div>
+
+<div ng-show="Color3">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: red; font-style: bold; border-color: red"> Red </button>
+</div>
+
+<div ng-show="Color4">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: green; font-style: bold; border-color: green"> Green </button>
+</div>
+
+<div ng-show="Color4">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: blue; font-style: bold; border-color: blue"> Green </button>
+</div>
+
+<div ng-show="Color5">
+<!-- <h1> This is the sentence 1 </h1> -->
+<button ng-click="thisFunction()" type = "button" class="btn btn-default btn-lg" style= "color: red; font-style: bold; border-color: red"> Blue </button>
+</div>
+
+
+<script type="text/javascript">
+	colors.module('myApp', []).controller('myCtrl', ['$scope', function ($scope){
+		$scope.Color1 = true;
+		$scope.Color2 = false;
+		$scope.Color3 = false;
+		$scope.Color4 = false;
+		$scope.Color5 = false;
+
+		$scope.thisFunction = function(){
+			$scope.correct = false;
+			$scope.incorrect = true;
+		}
+
+		$scope.thisFunctionVery = function(){
+			$scope.hideNow = true;
+			$scope.correct = true;
+			$scope.incorrect = false;
+			$scope.secondSentence = true;
+		}
+
+		$scope.thisFunction2 = function(){
+			$scope.correct2 = false;
+			$scope.incorrect2 = true;
+		}
+
+		$scope.thisFunctionJust = function(){
+			$scope.hideNow2 = true;
+			$scope.correct2 = true;
+			$scope.incorrect2 = false;
+			$scope.thirdSentence = true;
+		}
+
+		$scope.thisFunction3 = function(){
+			$scope.correct3 = false;
+			$scope.incorrect3 = true;
+		}
+
+		$scope.thisFunctionReally = function(){
+			$scope.hideNow3 = true;
+			$scope.correct3 = true;
+			$scope.incorrect3 = false;
+		}
+
+	}]);
+
+
+
+
+
