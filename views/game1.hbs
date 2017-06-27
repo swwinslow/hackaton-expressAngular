@@ -33,6 +33,7 @@
 </nav>
 
     <div ng-controller="myCtrl">
+      <div ng-hide="gameOne">
       <p style = "font-style: bold"> In this game, remove the unnecessary word in the sentence. If you select the correct word, the next sentence will appear. Repeat this exerices five times. </p>
       <div ng-show="firstSentence">
       <h1> This is the sentence 1 </h1>
@@ -77,17 +78,75 @@
       <!-- <button ng-show="x" type= button class="btn btn-warning" ng-click="thisFunction()"> Try again. </button>  -->
        <button ng-show="incorrect3" type= button class="btn btn-danger"> Try Again. </button>
       </div>
+      <br>
+      <br>
+      <button ng-show="showNextButtonForGame2" ng-click="loadGame2()"> Next Game </button>
     </div>
+
+    <div ng-show="">
+      <center>
+      <b>Game 2</b>
+      <br>
+      <b>Which word is in this picture?</b>
+      <br>
+
+          <h3>What is in this picture?</h3>
+          <input type="radio" name="question0" value="A">Pen<br>
+          <input type="radio" name="question0" value="B">Pencil<br>
+          <input type="radio" name="question0" value="C">Paper<br>
+          <img border="0" alt="Happy" src="Pen.jpg" width="100" height="100">
+
+
+          <h3>What is in this picture?</h3>
+          <input type="radio" name="question1" value="A">Carrot<br>
+          <input type="radio" name="question1" value="B">Corn<br>
+          <input type="radio" name="question1" value="C">Celery<br>
+          <img border="0" alt="Happy" src="Carrot.jpg" width="100" height="100">
+
+
+          <h3>What is in this picture?</h3>
+          <input type="radio" name="question2" value="A">Cat<br>
+          <input type="radio" name="question2" value="B">Cow<br>
+          <input type="radio" name="question2" value="C">Dog<br>
+          <img border="0" alt="Happy" src="Dog.jpg" width="100" height="100">
+
+          <h3>What is in this picture?</h3>
+          <input type="radio" name="question2" value="A">Happy<br>
+          <input type="radio" name="question2" value="B">Angry<br>
+          <input type="radio" name="question2" value="C">Tired<br>
+          <input type="radio" name="question2" value="C">Sad<br>
+
+          <img border="0" alt="Happy" src="sad.jpg" width="100" height="100">
+
+
+
+
+      <a href="https://www.w3schools.com/html/html_links.asp">next</a>
+
+      <button onclick="returnScore()">View Results</button>
+    </div>
+  </div>
 
 
   <script>
 angular.module('game1', [])
   .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.showGame1 = true;
+    $scope.showGame2 = false;
+
+    $scope.showNextButtonForGame2 = false;
+
+    //all the logic for game 1
     $scope.firstSentence = true;
 		$scope.secondSentence = false;
 		$scope.thirdSentence = false;
 		$scope.fourthSentence = false;
 		$scope.fifthSentence = false;
+
+    $scope.loadGame2 = function(){
+      $scope.showGame1 = true;
+      $scope.showGame2 = false;
+    }
 
 		$scope.thisFunction = function(){
 			$scope.correct = false;
@@ -122,6 +181,8 @@ angular.module('game1', [])
 			$scope.hideNow3 = true;
 			$scope.correct3 = true;
 			$scope.incorrect3 = false;
+      $scope.showNextButtonForGame2 = true;
+
 		}
 
   }]);
