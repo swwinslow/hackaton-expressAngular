@@ -11,17 +11,27 @@ img {
 }
 </style>
 </head>
-<body style = "background-color: white">
-
-<h1 style = "color: navy; text-align: center">Alzheimer's Memory Task</h1>
-<h3 style = "color: navy; text-align: center">A team of IT interns at Eli Lilly developed a rapid screening test to detect mild cognitive impairment - often the earliest stage of Alzheimer's Disease. Published nowhere, the new screening instrument allowed the researchers to (more or less) correctly classigy the participants at 0% accuracy as cognitively: normal, demented or mildly impaired.</h3>
-<h6 style = "color: navy; text-align: center"> Please refer to an actual doctor for legitament diagnoses of Alzheimer's Disease. </h6>
-<br>
-<br>
-<img src="games.png"; style="width:35%">
-
-<button> </button>
-
+<body style = "background-color: white" ng-app="index">
+<div ng-controller="myCtrl">
+  <h1 style = "color: navy; text-align: center">Alzheimer's Memory Task</h1>
+  <h3 style = "color: navy; text-align: center">A team of IT interns at Eli Lilly developed a rapid screening test to detect mild cognitive impairment - often the earliest stage of Alzheimer's Disease. Published nowhere, the new screening instrument allowed the researchers to (more or less) correctly classigy the participants at 0% accuracy as cognitively: normal, demented or mildly impaired.</h3>
+  <h6 style = "color: navy; text-align: center"> Please refer to an actual doctor for legitament diagnoses of Alzheimer's Disease. </h6>
+  <br>
+  <br>
+  <img src="games.png"; style="width:35%">
+  <FORM METHOD="LINK" ACTION="/game1">
+    <INPUT TYPE="submit" VALUE="Clickable Button">
+    </FORM>
+</div>
 </body>
+<script>
+angular.module('index', [])
+  .controller('myCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+    $scope.goToGame = function(){
+      $location.path('/game1');
+    }
+
+  }]);
+</script>
 </html>
 <body>
