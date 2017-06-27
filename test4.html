@@ -1,36 +1,53 @@
 <center>
 <b>Game 2</b>
 <br>
-<b>Which word is in this picture?</b>
-<br>
 
 
 
 
   
     <h3>What is in this picture?</h3>
-    <input type="radio" name="question0" value="A">Pen<br>
-    <input type="radio" name="question0" value="B">Pencil<br>
-    <input type="radio" name="question0" value="C">Paper<br>
+    <input type="radio" name="question1" value="A">Pen<br>
+    <input type="radio" name="question1" value="B">Pencil<br>
+    <input type="radio" name="question1" value="C">Paper<br>
     <img border="0" alt="Happy" src="Pen.jpg" width="200" height="200"> 
 
-<br>s
+<br>
     <h3>What is in this picture?</h3>
-    <input type="radio" name="question1" value="A">Carrot<br>
-    <input type="radio" name="question1" value="B">Corn<br>
-    <input type="radio" name="question1" value="C">Celery<br>
+    <input type="radio" name="question2" value="A">Carrot<br>
+    <input type="radio" name="question2" value="B">Corn<br>
+    <input type="radio" name="question2" value="C">Celery<br>
     <img border="0" alt="Happy" src="Carrot.jpg" width="200" height="200"> 
 <br>
   
     <h3>What is in this picture?</h3>
-    <input type="radio" name="question2" value="A">Cat<br>
-    <input type="radio" name="question2" value="B">Cow<br>
-    <input type="radio" name="question2" value="C">Dog<br>
+    <input type="radio" name="question3" value="A">Cat<br>
+    <input type="radio" name="question3" value="B">Cow<br>
+    <input type="radio" name="question3" value="C">Dog<br>
     <img border="0" alt="Happy" src="Dog.jpg" width="200" height="200"> 
 
 <br>
+<script>
+var answers = ["A","A","C"], 
+    total = answers.length;
 
+function CheckedValue( radioName ){
+    var radios = document.getElementsByName( radioName ); 
+    for(var y=0; y<radios.length; y++)
+      if(radios[y].checked) return radios[y].value; 
+}
 
+function Score(){
+  var score = 0;
+  for (var i=0; i<total; i++)
+    if(CheckedValue("question"+i)===answers[i]) score += 1; // increment only
+  return score;
+}
+
+function returnScore(){
+  alert("Your score is "+ Score() +"/"+ total);
+}
+</script>
 <a href="https://www.w3schools.com/html/html_links.asp">next</a>
 <br>
 
