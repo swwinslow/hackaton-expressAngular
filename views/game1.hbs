@@ -80,13 +80,17 @@
       </div>
       <br>
       <br>
+
+    </div>
+
+    <div  ng-show="game1Complete">
+      <h1> Errors </h1>
       <FORM METHOD="LINK" ACTION="check1">
-          <INPUT TYPE="submit" VALUE="Clickable Button">
+          <INPUT TYPE="submit" VALUE="Next">
         </FORM>
     </div>
 
 
-      <button onclick="returnScore()">View Results</button>
   </div>
 
 
@@ -95,7 +99,9 @@ angular.module('game1', [])
   .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.showGame1 = true;
     $scope.showGame2 = false;
+    $scope.game1Complete = false;
 
+    $scope.errors = 0;
     $scope.showNextButtonForGame2 = false;
 
     //all the logic for game 1
@@ -111,6 +117,7 @@ angular.module('game1', [])
     }
 
 		$scope.thisFunction = function(){
+      $scope.errors += 1;
 			$scope.correct = false;
 			$scope.incorrect = true;
 		}
@@ -123,6 +130,7 @@ angular.module('game1', [])
 		}
 
 		$scope.thisFunction2 = function(){
+      $scope.errors += 1;
 			$scope.correct2 = false;
 			$scope.incorrect2 = true;
 		}
@@ -135,6 +143,7 @@ angular.module('game1', [])
 		}
 
 		$scope.thisFunction3 = function(){
+      $scope.errors += 1;
 			$scope.correct3 = false;
 			$scope.incorrect3 = true;
 		}
@@ -144,7 +153,7 @@ angular.module('game1', [])
 			$scope.correct3 = true;
 			$scope.incorrect3 = false;
       $scope.showNextButtonForGame2 = true;
-
+      $scope.game1Complete = true;
 		}
 
   }]);
