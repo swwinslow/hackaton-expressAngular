@@ -2,10 +2,59 @@
 <html lang="en-US">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
 </script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body ng-app="game1">
 
     <div ng-controller="myCtrl">
-      <h1> This is the results page</h1>
+      <h1> Doctor Link</h1>
+
+      <div class="container">
+  <h2>Patients with Dr. Karen</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Patient Name</th>
+        <th>Date</th>
+        <th>Game</th>
+        <th>Errors</th>
+        <th>Time</th>
+        <th> Average Mood </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sophie Hazel</td>
+        <td>03/30/2016</td>
+        <td>Sentence</td>
+        <td>3 errors</td>
+        <td>0:23.23</td>
+        <td> Tired </td>
+      </tr>
+      <tr>
+        <td>Hannah Thomas</td>
+        <td>11/12/2017</td>
+        <td>Colors</td>
+        <td>5 errors</td>
+        <td>0:12.73</td>
+        <td> Happy </td>
+
+      </tr>
+      <tr>
+        <td>Emma Queens</td>
+        <td>08/12/2015</td>
+        <td>Quiz</td>
+        <td>2 errors</td>
+        <td>1:12.63</td>
+        <td> Sad </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
 
     </div>
 

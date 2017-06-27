@@ -2,24 +2,55 @@
 <html lang="en-US">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
 </script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+angular.module('myApp', [])
+  .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.showEmtion = false;
+    $scope.emtion = "";
 
-<body>
-<centers>
+      $scope.happy = function() {
+        console.log("happy");
+        $scope.showEmtion = true;
+        $scope.emtion = "Happy";
+
+      }
+
+      $scope.sad = function() {
+        console.log("sad");
+
+        $scope.showEmtion = true;
+        $scope.emtion = "Sad";
+      }
+
+      $scope.tired = function() {
+        console.log("tired");
+
+        $scope.showEmtion = true;
+        $scope.emtion = "Tired";
+      }
+
+      $scope.mad = function() {
+        $scope.showEmtion = true;
+        $scope.emtion = "Mad";
+      }
+
+  }]);
+
+</script>
+
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+<center>
+  <h1 ng-show="showEmtion"> {{emtion}} <h1>
 <b>How did this activity make you feel?</b>
 <br>
 
 
 <p>
 Happy
-<img border="0" alt="Happy" src="Happy3.jpg" width="100" height="100">
+<img ng-click="happy()" border="0" alt="Happy" src="Happy3.jpg" width="100" height="100">
 
 </p>
 
@@ -27,7 +58,7 @@ Happy
 
 <p>
 Mad
-<img border="0" alt="Mad" src="Angry.jpg" width="100" height="100">
+<img ng-click="mad()" border="0" alt="Mad" src="Angry.jpg" width="100" height="100">
 
 </p>
 
@@ -36,7 +67,7 @@ Mad
 
 <p>
 Tired
-<img border="0" alt="Tired" src="tired.jpg" width="100" height="100">
+<img ng-click="tired()" border="0" alt="Tired" src="tired.jpg" width="100" height="100">
 
 </p>
 
@@ -44,11 +75,17 @@ Tired
 
 <p>
 
-<img border="0" alt="Sad" src="sad.jpg" width="100" height="100">
+<img ng-click="sad()" border="0" alt="Sad" src="sad.jpg" width="100" height="100">
 </a>
 </p>
-<script>
 
+<div>
+  <FORM METHOD="LINK" ACTION="game2">
+      <INPUT TYPE="submit" VALUE="Next Game">
+    </FORM>
+</div>
 
-</script>
+</div>
 </body>
+
+</html

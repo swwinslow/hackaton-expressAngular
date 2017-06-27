@@ -1,1 +1,91 @@
-<h1> This is the check 3 </h1>
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+
+
+<script>
+angular.module('myApp', [])
+  .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.showEmtion = false;
+    $scope.emtion = "";
+
+      $scope.happy = function() {
+        console.log("happy");
+        $scope.showEmtion = true;
+        $scope.emtion = "Happy";
+
+      }
+
+      $scope.sad = function() {
+        console.log("sad");
+
+        $scope.showEmtion = true;
+        $scope.emtion = "Sad";
+      }
+
+      $scope.tired = function() {
+        console.log("tired");
+
+        $scope.showEmtion = true;
+        $scope.emtion = "Tired";
+      }
+
+      $scope.mad = function() {
+        $scope.showEmtion = true;
+        $scope.emtion = "Mad";
+      }
+
+  }]);
+
+</script>
+
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+<center>
+  <h1 ng-show="showEmtion"> {{emtion}} <h1>
+<b>How did this activity make you feel?</b>
+<br>
+
+
+<p>
+Happy
+<img ng-click="happy()" border="0" alt="Happy" src="Happy3.jpg" width="100" height="100">
+
+</p>
+
+
+
+<p>
+Mad
+<img ng-click="mad()" border="0" alt="Mad" src="Angry.jpg" width="100" height="100">
+
+</p>
+
+
+
+
+<p>
+Tired
+<img ng-click="tired()" border="0" alt="Tired" src="tired.jpg" width="100" height="100">
+
+</p>
+
+
+
+<p>
+
+<img ng-click="sad()" border="0" alt="Sad" src="sad.jpg" width="100" height="100">
+</a>
+</p>
+
+<div>
+  <FORM METHOD="LINK" ACTION="results">
+      <INPUT TYPE="submit" VALUE="Complete">
+    </FORM>
+</div>
+
+</div>
+</body>
+
+</html
