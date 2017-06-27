@@ -20,96 +20,211 @@
 <div ng-app="myApp">
 
 <div ng-controller="myCtrl">
+<center>
+<h4> In this game, a color will appear on the screen. Click on the button if the color of that text matches the color presented on the page. </h4>
+<h4> If the color of the text matches the color presented on the page, don't click on the button. </h4>
 
-<p style = "font-style: bold"> In this game, a color will appear on the screen. Click on the button if the color of that text matches the color presented on the page. If the colorof the text matches the color presented on the page, don't click on the button. </p>
+
+<h3>Click "Start". Wait 3 seconds, and the game will begin.</h3>
+<!-- <button onclick="setTimeout(myFunction, 3000);">Start</button> -->
+
+<br>
+<br>
+
 <div ng-show="Color1">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction1()" type = "button" class="btn btn-default btn-lg" style= "color: green; font-style: bold; border-color: green"> Red </button>
+<button ng-click="thisFunction1()" type= "button" id="firstButton" style= "background-color: white; color: green; border-color: green; width:35%; height: 100%"> Red </button>
 </div>
 
 <div ng-show="Color2">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction2()" type = "button" class="btn btn-default btn-lg" style= "color: blue; font-style: bold; border-color: blue"> Blue </button>
+<button ng-click="thisFunction2()" type = "button" id="secondButton" style= "background-color: white; color: blue; border-color: blue; width: 35%; height: 100%"> Blue </button>
 </div>
 
 <div ng-show="Color3">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction3()" type = "button" class="btn btn-default btn-lg" style= "color: red; font-style: bold; border-color: red"> Red </button>
+<button ng-click="thisFunction3()" type = "button" id="thirdButton" style= "background-color: white; color: red; border-color: red; width: 35%; height: 100%"> Red </button>
 </div>
 
 <div ng-show="Color4">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction4()" type = "button" class="btn btn-default btn-lg" style= "color: green; font-style: bold; border-color: green"> Green </button>
+<button ng-click="thisFunction4()" type = "button" id="fourthButton" style= "background-color: white; color: green; border-color: green; width: 35%; height: 100%"> Green </button>
 </div>
 
 <div ng-show="Color5">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction5()" type = "button" class="btn btn-default btn-lg" style= "color: blue; font-style: bold; border-color: blue"> Green </button>
+<button ng-click="thisFunction5()" type = "button" id="fifthButton" style= "background-color: white; color: blue; border-color: blue; width: 35%; height: 100%"> Green </button>
 </div>
 
 <div ng-show="Color6">
 <!-- <h1> This is the sentence 1 </h1> -->
-<button ng-click="thisFunction6()" type = "button" class="btn btn-default btn-lg" style= "color: red; font-style: bold; border-color: red"> Blue </button>
+<button ng-click="thisFunction6" type = "button" id="sixthButton" style= "background-color: white; color: red; border-color: red; width: 35%; height: 100%"> Blue </button>
 </div>
+</center>
+
+ <script>
+angular.module('myApp', [])
+  .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+
+  	$scope.Color1 = true;
+	$scope.Color2 = false;
+	$scope.Color3 = false;
+	$scope.Color4 = false;
+	$scope.Color5 = false;
+	$scope.Color5 = false;
+	$scope.incorrect = 0;
+	$scope.correct = 0;
+
+  	$scope.firstDone = false;
+  	$scope.secondDone = false;
+	$scope.thirdDone = false;
+  	$scope.fourDone = false;
+  	$scope.fiveDone = false;
+  	$scope.sixDone = false;
+
+  	
+  	var firstSeconds = setInterval(firstButtonShowFunction, 3000);
+  	var secondSeconds = setInterval(secondButtonFunction, 6000);
+  	var threeSeconds = setInterval(thirdButtonFunction, 9000);
+  	var fourSeconds = setInterval(fourButtonFunction, 12000);
+  	var fiveSeconds = setInterval(fiveButtonFunction, 15000);
+  	var sixSeconds = setInterval(sixButtonFunction, 18000);
 
 
-<script type="text/javascript">
-	colors.module('myApp', []).controller('myCtrl', ['$scope', function ($scope){
-		$scope.Color1 = true;
-		$scope.Color2 = false;
-		$scope.Color3 = false;
-		$scope.Color4 = false;
-		$scope.Color5 = false;
-		$scope.Color5 = false;
+	function firstButtonShowFunction() {
+		if($scope.firstDone == false){
+			console.log("this is for the firts button");
+			$scope.Color1 = false;
+			$scope.firstDone = true;
+			$scope.Color2 = true;
+			$scope.$apply();
+		}
+	}
+	function secondButtonFunction() {
+		if($scope.secondDone  == false){
+			console.log("this is for the second button");
+			$scope.Color1  = false;
+			$scope.Color2 = false;
+			$scope.Color3 = true;
+			$scope.secondDone = true;
+			$scope.$apply();
+		}
+	}
+
+	function thirdButtonFunction() {
+		if($scope.thirdDone == false){
+			console.log("this is for the third button");
+			$scope.Color3 = false;
+			$scope.Color4  = true;
+			$scope.thirdDone = true;
+			$scope.$apply();
+		}	
+	}
+
+	function fourButtonFunction() {
+		if($scope.fourDone == false){
+			console.log("this is for the four button");
+			$scope.Color4 = false;
+			$scope.Color5  = true;
+			$scope.fourDone = true;
+			$scope.$apply();
+		}
+	}
+
+	function fiveButtonFunction() {
+		if($scope.fiveDone == false){
+			console.log("this is for the four button");
+			$scope.Color5 = false;
+			$scope.Color6  = true;
+			$scope.fiveDone = true;
+			$scope.$apply();
+		}
+	}
+
+	function sixButtonFunction() {
+		if($scope.sixDone == false){
+			console.log("this is for the four button");
+			$scope.Color6 = false;
+			$scope.sixDone = true;
+			$scope.$apply();
+		}
+	}  		
+
 
 		$scope.thisFunction1 = function(){
-			// if button hits, tally as incorrect
-			$scope.Color1 = false;
-			$scope.Color2 = true;
+				console.log("button 1 clicked");
+				$scope.Color1 = false;
+				$scope.Color2 = true;
+				$scope.firstDone = true;
+				clearInterval(secondSeconds);
+				clearInterval(threeSeconds);
+				clearInterval(fourSeconds);
+				clearInterval(fiveSeconds);
+				clearInterval(sixSeconds);
+				$scope.secondSeconds = setInterval(3000);
+				$scope.threeSeconds = setInterval(6000);
+				$scope.fourSeconds = setInterval(9000);
+				$scope.fiveSeconds = setInterval(12000);
+				$scope.sixSeconds = setInterval(15000);
+				$scope.incorrect = 1;
+
 		}
 
 		$scope.thisFunction2 = function(){
-			$scope.Color1 = false;
-			$scope.Color2 = false;
-			$scope.Color3 = true;
+				console.log("button 2 clicked");
+				$scope.Color2 = false;
+				$scope.Color3 = true;
+				$scope.secondDone = true;
+				$scope.threeSeconds = setInterval(3000);
+				$scope.fourSeconds = setInterval(6000);
+				$scope.fiveSeconds = setInterval(9000);
+				$scope.sixSeconds = setInterval(12000);
+				$scope.correct = 1;
+
 		}
 
 		$scope.thisFunction3 = function(){
-			$scope.Color1 = false;
-			$scope.Color2 = false;
+			console.log("button 3");
 			$scope.Color3 = false;
-			$scope.Color4 = true;
+			$scope.Color4  = true;
+			$scope.threeDone = true;
+			$scope.fourSeconds = setInterval(3000);
+			$scope.fiveSeconds = setInterval(6000);
+			$scope.sixSeconds = setInterval(9000);
+			$scope.correct = 2;
 		}
 
 		$scope.thisFunction4 = function(){
-			$scope.Color1 = false;
-			$scope.Color2 = false;
-			$scope.Color3 = false;
+			console.log("button 4 clicked");
 			$scope.Color4 = false;
-			$scope.Color5 = true;
+			$scope.Color5  = true;
+			$scope.fourDone = true;
+			$scope.fiveSeconds = setInterval(3000);
+			$scope.sixSeconds = setInterval(6000);
+			$scope.correct = 3;
 		}
 
 		$scope.thisFunction5 = function(){
-			$scope.Color1 = false;
-			$scope.Color2 = false;
-			$scope.Color3 = false;
-			$scope.Color4 = false;
+			console.log("button 5 clicked");
 			$scope.Color5 = false;
-			$scope.Color6 = true;
+			$scope.Color6  = true;
+			$scope.fiveDone = true;
+			$scope.sixSeconds = setInterval(3000);
+			$scope.incorrect = 2;
 		}
 
 		$scope.thisFunction6 = function(){
-			$scope.Color1 = false;
-			$scope.Color2 = false;
-			$scope.Color3 = false;
-			$scope.Color4 = false;
-			$scope.Color5 = false;
+			console.log("button 6 clicked");
 			$scope.Color6 = false;
+			$scope.sixDone = true;
+			$scope.incorrect = 3;
 		}
+    
+  }]);
+</script>
 
-	}]);
-
-
+</body>
+</html>
 
 
 
