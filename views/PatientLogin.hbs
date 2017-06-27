@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+<body ng-app="game1">
+
+    <div ng-controller="myCtrl">
+      <h1> Patient Login </h1>
+
+      <h2> Username: </h2>
+      <input type='text' ng-model="userName" />
+
+      <h2> Password: </h2>
+      <input type='password' ng-model="password" />
+
+      <button ng-click="login(userName, password)" /> Login </button>
+
+      <div ng-show="loginFailed">
+          <h3> Login in Failed. Try again </h3>
+      </div>
+
+
+    </div>
+
+
+  <script>
+angular.module('game1', [])
+  .controller('myCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.loginFailed = false;
+      $scope.login = function(name, password){
+        if(name == "patient1" && password == "password"){
+
+        } else {
+          $scope.loginFailed = true;
+        }
+      }
+  }]);
+</script>
+
+</body>
+</html>

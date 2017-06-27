@@ -13,9 +13,15 @@ var game1 = require('./routes/game1');
 var game2 = require('./routes/game2');
 var game3 = require('./routes/game3');
 var game4 = require('./routes/game4');
-var game5 = require('./routes/game5');
+var login = require('./routes/login');
 var game6 = require('./routes/game6');
-// var doctorLink = require('./routes/doctorLink');
+var results = require('./routes/results');
+var PatientLogin = require('./routes/PatientLogin');
+var check1 = require('./routes/check1');
+var check2 = require('./routes/check2');
+var check3 = require('./routes/check3');
+
+// var doctorLink = require('./routes/doctoLik');
 
 var app = express();
 
@@ -40,8 +46,14 @@ app.use('/game1', game1);
 app.use('/game2', game2);
 app.use('/game3', game3);
 app.use('/game4', game4);
-app.use('/game5', game5);
-app.use('/game6', game6);
+app.use('/login', login);
+app.use('/PatientLogin', PatientLogin);
+app.use('/game7', game6);
+app.use('/results', results);
+app.use('/check1', check1);
+app.use('/check2', check2);
+app.use('/check3', check3);
+
 // app.use('/doctorLink', doctorLink);
 
 
